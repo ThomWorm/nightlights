@@ -1,0 +1,75 @@
+I want to relate imperviousness from NCLD to VIIRS night light brightness for a study (a sample image of of this relationship is attached for a limited extent in North Carolina). Assume I have rescaled NLCD to the 750m of VIIRS.
+I have a model that makes future predicions about imperviousness, that I want to use to forecast future light pollution. I want to establish a relationship between imperviousness and brightness, so that when I predict future increases in imperviousness I can estimate future brightness using a simple model.
+Youll notice a  consistent but noisy relationship between the predictor (imperviousness) and the response (brightness) - what are my best statistical models to describe this relationship and use it to predict future brightnes?
+
+
+
+
+Notes: Brightness inference
+Here is a breakdown of your final model choices. I have separated this into a Technical Deep Dive (for your understanding) and a Supervisor Summary (text you can copy-paste into an email or slide deck).
+Part 1: Technical Deep Dive
+1. family="gamma" (The Probability Distribution)
+
+    The Problem: Your data is strictly positive (you can't have negative light) and "heteroscedastic." This means the error isn't constant: rural areas have tiny variance (always dark), while urban areas have huge variance (some are dim suburbs, some are blazing stadiums).
+
+    The Solution: The Gamma distribution mathematically enforces y>0 and naturally assumes that Variance scales with the Mean (Var∝μ2). It automatically widens the "cone of uncertainty" as predictions get brighter, matching the "fan shape" in your scatter plot without needing manual weights.
+
+Shutterstock
+
+    Explore 
+
+2. poly(mean_impervious, 2) (The Quadratic Trend)
+
+    The Problem: The relationship isn't a straight line (Linear), nor is it a complex wiggle (Spline).
+
+    The Solution: A 2nd-degree polynomial (y=Ax2+Bx+C) fits a parabola. This captures the physical reality of urbanization: as you go from 50% to 100% imperviousness, you aren't just adding more pavement; you are adding verticality (tall buildings) and density. Light intensity grows faster than the concrete footprint, so the curve needs to bend upward slightly.
+
+3. link="identity" (The "No-Explosion" Constraint)
+
+    The Problem: The standard link for Gamma models is log (y=ex). While common, this forces an exponential curve. In your specific dataset, this caused the "hockey stick" effect, where predictions at >90% imperviousness shot up vertically to unrealistic levels (300+ radiance).
+
+    The Solution: The identity link (y=x) tells the model the relationship is additive, not multiplicative. It allows the quadratic term to handle the curve, but prevents that curve from exponentiating into a vertical wall. It keeps predictions in the physically observed range (100–180 radiance).
+
+4. bmb.Model (The Bayesian Framework)
+
+    The Problem: Fitting a Gamma model with an Identity link is mathematically unstable. Standard solvers (like statsmodels or R) often crash because they accidentally guess a negative number during optimization.
+
+    The Solution: The Bayesian framework uses "Priors" to gently guide the solver, ensuring stability. More importantly, it allows you to generate Posterior Predictive Samples—the "texture" or "noise" you need to make realistic future maps, rather than just predicting a smooth average.
+
+Part 2: The "Supervisor Pitch"
+
+Use this text to explain the methodology to your PI or stakeholders.
+
+Proposed Modeling Approach: Bayesian Gamma Regression
+
+To forecast future light pollution based on projected imperviousness, we have selected a Bayesian Gamma GLM with a Quadratic Identity Link. This approach was chosen to address three specific characteristics of the VIIRS/NLCD dataset:
+
+    Modeling Variance (The "Fan Shape"): Standard regression assumes error is constant across the map. However, our data shows that variance increases drastically with urbanization (rural areas are consistently dark; urban areas range from dim to intensely bright). We use a Gamma likelihood to capture this heteroscedasticity, ensuring our uncertainty estimates scale dynamically with brightness.
+
+    Physical Realism (The "Identity Link"): While many light models use exponential curves (Log Link), our validation showed this leads to "runaway" predictions at high densities (the "hockey stick" effect). By switching to an Identity Link with a Quadratic term, we model the growth of light as an accelerating additive process. This captures the increased density of urban centers while constraining predictions to physically observed radiance levels (preventing impossible over-estimates).
+
+    Texture Generation (Bayesian Inference): Rather than predicting a smooth, artificial "average" brightness for every city, the Bayesian framework allows us to sample from the full probability distribution. This enables us to generate "semi-random" future maps that retain the grainy, heterogeneous texture of real satellite imagery, providing a more realistic visual representation of future light pollution.
+
+Equation:
+Radiance∼Gamma(μ,α)
+μ=β0​+β1​(Imp)+β2​(Imp2)
+
+
+----
+
+Here is a text-ready Methods section describing your approach.
+Executive Summary
+
+To estimate future light pollution based on projected imperviousness, we developed a Bayesian Gamma regression model that accounts for the inherent noise and non-linearity of urban lighting. Unlike standard linear regression, which assumes constant variance, our model utilizes a Gamma likelihood to capture the "fan-shaped" heteroscedasticity observed in VIIRS data, where variance increases with brightness. We employed a quadratic polynomial with an identity link function—rather than the standard log link—to model the accelerating relationship between concrete and light while preventing unrealistic exponential growth at high densities. This probabilistic framework allows us to simulate realistic, textured night light imagery by sampling from the posterior predictive distribution, rather than simply projecting a smooth average.
+Methods: Statistical Modeling of the Imperviousness-Brightness Relationship
+
+To characterize the relationship between urbanization and night light intensity, we modeled VIIRS Day/Night Band (DNB) radiance as a function of NLCD impervious surface percentage. Exploratory analysis revealed that the data are strictly positive, right-skewed, and exhibit significant heteroscedasticity, where the variance in night light intensity scales with the mean brightness. Standard Ordinary Least Squares (OLS) regression is inappropriate for such data as it assumes homoscedasticity and can yield negative predictions. Consequently, we adopted a Bayesian Generalized Linear Model (GLM) using a Gamma likelihood distribution, which naturally enforces positive constraints and models the variance as a function of the mean, accurately capturing the increasing dispersion of light values in dense urban centers.
+
+We specified the mean function of the Gamma distribution using a quadratic polynomial of imperviousness to capture the non-linear accumulation of light sources. Crucially, we utilized an identity link function rather than the canonical log link. While log-link Gamma models are common, they imply an exponential relationship that often overestimates radiance at high imperviousness levels (the "hockey stick" effect). By employing an identity link with a quadratic term, our model characterizes the relationship as additive and curvilinear, allowing for accelerated brightness in suburbs while constraining the upper bounds of the model to physically realistic levels observed in the training data. To accommodate zero-values in the VIIRS dataset within the Gamma framework, a small constant offset (ϵ=0.1) was applied to the response variable.
+
+The model can be formalized as follows. Let yi​ denote the shifted VIIRS radiance and xi​ denote the percent imperviousness for pixel i. The observed radiance is modeled as a Gamma random variable with mean μi​ and shape parameter α:
+yi​μi​​∼Gamma(μi​,α)=β0​+β1​xi​+β2​xi2​​
+
+where β0​, β1​, and β2​ are the regression coefficients for the intercept, linear, and quadratic terms, respectively. The variance of the predictive distribution is given by σi2​=μi2​/α, ensuring that uncertainty scales dynamically with predicted brightness.
+
+Model parameters were estimated using Markov Chain Monte Carlo (MCMC) sampling via the No-U-Turn Sampler (NUTS). For forecasting, we did not rely solely on the fitted mean trend line, which produces an artificially smooth gradient. Instead, we generated spatially heterogeneous lightscapes by drawing samples from the posterior predictive distribution. For each future pixel i, a radiance value y~​i​ is drawn from the learned Gamma distribution defined by μi​ and α. This approach preserves the aleatoric uncertainty of the system, ensuring that forecasted maps retain the realistic "noise" and texture characteristic of actual satellite night light imagery.

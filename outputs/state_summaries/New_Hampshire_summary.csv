@@ -1,0 +1,21 @@
+imp_bin,count,mean,std,min,max,state,predictor
+0-5,136553,0.6413004,1.0636781,0.19,196.41,New Hampshire,mean
+5-10,8257,1.9074277,4.8466096,0.31,297.95,New Hampshire,mean
+10-15,3213,2.9727294,3.0518765,0.36,41.62,New Hampshire,mean
+15-20,1761,4.5998635,4.9816694,0.43,101.86,New Hampshire,mean
+20-25,1120,6.0256605,5.135655,0.35,52.16,New Hampshire,mean
+25-30,854,7.689005,5.885137,0.52,49.96,New Hampshire,mean
+30-35,628,9.884697,7.2899837,0.7,62.19,New Hampshire,mean
+35-40,468,12.621603,7.686733,0.7,42.59,New Hampshire,mean
+40-45,322,13.878944,9.917139,0.64,78.99,New Hampshire,mean
+45-50,275,17.5896,9.9805765,2.51,79.27,New Hampshire,mean
+50-55,198,20.924343,12.078872,1.83,76.97,New Hampshire,mean
+55-60,151,21.705364,11.1217165,1.89,63.97,New Hampshire,mean
+60-65,116,27.559568,14.951138,5.63,89.9,New Hampshire,mean
+65-70,72,32.04361,16.435995,5.31,86.88,New Hampshire,mean
+70-75,69,39.968697,17.742674,9.84,89.76,New Hampshire,mean
+75-80,50,44.679398,18.076534,13.41,83.76,New Hampshire,mean
+80-85,22,68.733185,25.307302,25.7,119.56,New Hampshire,mean
+85-90,4,66.8475,3.0400906,62.33,68.89,New Hampshire,mean
+90-95,0,,,,,New Hampshire,mean
+95-100,0,,,,,New Hampshire,mean

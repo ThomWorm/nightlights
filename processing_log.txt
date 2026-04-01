@@ -1,0 +1,128 @@
+2025-12-05 13:59:19,325 - INFO - Loading US States Shapefile (cached for all iterations)...
+2025-12-05 13:59:19,388 - INFO - [North Carolina] Starting processing...
+2025-12-05 13:59:19,433 - INFO - [North Carolina] Clipping NLCD...
+2025-12-05 13:59:22,032 - INFO - [North Carolina] Clipping VIIRS...
+2025-12-05 13:59:22,073 - INFO - [North Carolina] Aggregating/Resampling...
+2025-12-05 13:59:24,337 - INFO - [North Carolina] Building DataFrame...
+2025-12-05 13:59:24,815 - INFO - [North Carolina] Success. Saved 794727 rows.
+2025-12-05 14:00:27,489 - INFO - Loading US States Shapefile (cached for all iterations)...
+2025-12-05 14:00:27,515 - INFO - [North Carolina] Starting processing...
+2025-12-05 14:00:27,516 - INFO - [North Carolina] Output already exists. Skipping.
+2025-12-05 14:00:27,516 - INFO - [Virginia] Starting processing...
+2025-12-05 14:00:27,523 - INFO - [Virginia] Clipping NLCD...
+2025-12-05 14:00:30,164 - INFO - [Virginia] Clipping VIIRS...
+2025-12-05 14:00:30,212 - INFO - [Virginia] Aggregating/Resampling...
+2025-12-05 14:00:32,508 - INFO - [Virginia] Building DataFrame...
+2025-12-05 14:00:32,906 - INFO - [Virginia] Success. Saved 646881 rows.
+2025-12-05 14:19:57,173 - INFO - arviz_base not installed
+2025-12-05 14:19:57,173 - INFO - arviz_stats not installed
+2025-12-05 14:19:57,174 - INFO - arviz_plots not installed
+2025-12-05 14:20:51,108 - INFO - Initializing NUTS using jitter+adapt_diag...
+2025-12-05 14:22:33,578 - INFO - Initializing NUTS using jitter+adapt_diag...
+2025-12-05 14:29:13,753 - INFO - Initializing NUTS using jitter+adapt_diag...
+2025-12-05 14:29:53,629 - INFO - Initializing NUTS using jitter+adapt_diag...
+2025-12-05 14:31:58,579 - INFO - Initializing NUTS using jitter+adapt_diag...
+2025-12-05 14:33:44,499 - INFO - Initializing NUTS using jitter+adapt_diag...
+2025-12-05 14:34:27,706 - INFO - Initializing NUTS using jitter+adapt_diag...
+2025-12-05 14:34:27,955 - INFO - Multiprocess sampling (2 chains in 2 jobs)
+2025-12-05 14:34:27,955 - INFO - NUTS: [alpha, Intercept, mean_impervious, I(mean_impervious ** 2)]
+2025-12-05 14:35:23,117 - INFO - Sampling 2 chains for 1_000 tune and 2_000 draw iterations (2_000 + 4_000 draws total) took 55 seconds.
+2025-12-05 14:35:23,249 - INFO - We recommend running at least 4 chains for robust computation of convergence diagnostics
+2025-12-05 14:37:33,535 - INFO - Initializing NUTS using jitter+adapt_diag...
+2025-12-05 14:37:33,807 - INFO - Multiprocess sampling (2 chains in 2 jobs)
+2025-12-05 14:37:33,808 - INFO - NUTS: [alpha, Intercept, mean_impervious, I(mean_impervious ** 2)]
+2025-12-05 14:38:29,882 - INFO - Sampling 2 chains for 1_000 tune and 2_000 draw iterations (2_000 + 4_000 draws total) took 56 seconds.
+2025-12-05 14:38:29,906 - INFO - We recommend running at least 4 chains for robust computation of convergence diagnostics
+2025-12-05 14:41:07,205 - INFO - Initializing NUTS using jitter+adapt_diag...
+2025-12-05 14:41:07,709 - INFO - Multiprocess sampling (2 chains in 2 jobs)
+2025-12-05 14:41:07,710 - INFO - NUTS: [alpha, Intercept, mean_impervious, I(mean_impervious ** 2)]
+2025-12-05 14:42:02,995 - INFO - Sampling 2 chains for 1_000 tune and 2_000 draw iterations (2_000 + 4_000 draws total) took 55 seconds.
+2025-12-05 14:42:03,015 - INFO - We recommend running at least 4 chains for robust computation of convergence diagnostics
+2025-12-05 14:42:46,425 - INFO - Initializing NUTS using jitter+adapt_diag...
+2025-12-05 14:42:46,729 - INFO - Multiprocess sampling (2 chains in 2 jobs)
+2025-12-05 14:42:46,730 - INFO - NUTS: [alpha, Intercept, mean_impervious, I(mean_impervious ** 2)]
+2025-12-05 14:43:42,437 - INFO - Sampling 2 chains for 1_000 tune and 2_000 draw iterations (2_000 + 4_000 draws total) took 56 seconds.
+2025-12-05 14:43:42,457 - INFO - We recommend running at least 4 chains for robust computation of convergence diagnostics
+2025-12-05 14:43:42,827 - INFO - Initializing NUTS using jitter+adapt_diag...
+2025-12-05 14:43:44,288 - INFO - Multiprocess sampling (2 chains in 2 jobs)
+2025-12-05 14:43:44,289 - INFO - NUTS: [alpha, Intercept, mean_impervious, I(mean_impervious ** 2)]
+2025-12-05 14:44:33,013 - INFO - Sampling 2 chains for 1_000 tune and 2_000 draw iterations (2_000 + 4_000 draws total) took 49 seconds.
+2025-12-05 14:44:33,033 - INFO - We recommend running at least 4 chains for robust computation of convergence diagnostics
+2025-12-09 15:07:12,505 - INFO - To route to workers diagnostics web server please install jupyter-server-proxy: python -m pip install jupyter-server-proxy
+2025-12-09 15:07:12,507 - INFO - State start
+2025-12-09 15:07:12,509 - INFO -   Scheduler at:     tcp://127.0.0.1:37373
+2025-12-09 15:07:12,510 - INFO -   dashboard at:  http://127.0.0.1:8787/status
+2025-12-09 15:07:12,510 - INFO - Registering Worker plugin shuffle
+2025-12-09 15:07:12,518 - INFO -         Start Nanny at: 'tcp://127.0.0.1:45569'
+2025-12-09 15:07:12,525 - INFO -         Start Nanny at: 'tcp://127.0.0.1:43659'
+2025-12-09 15:07:12,538 - INFO -         Start Nanny at: 'tcp://127.0.0.1:41841'
+2025-12-09 15:07:12,542 - INFO -         Start Nanny at: 'tcp://127.0.0.1:39887'
+2025-12-09 15:07:12,544 - INFO -         Start Nanny at: 'tcp://127.0.0.1:38379'
+2025-12-09 15:07:12,545 - INFO -         Start Nanny at: 'tcp://127.0.0.1:45381'
+2025-12-09 15:07:12,547 - INFO -         Start Nanny at: 'tcp://127.0.0.1:42761'
+2025-12-09 15:07:12,550 - INFO -         Start Nanny at: 'tcp://127.0.0.1:34427'
+2025-12-09 15:07:12,775 - INFO - Register worker addr: tcp://127.0.0.1:37653 name: 1
+2025-12-09 15:07:12,793 - INFO - Starting worker compute stream, tcp://127.0.0.1:37653
+2025-12-09 15:07:12,794 - INFO - Starting established connection to tcp://127.0.0.1:56670
+2025-12-09 15:07:12,796 - INFO - Register worker addr: tcp://127.0.0.1:46119 name: 0
+2025-12-09 15:07:12,797 - INFO - Starting worker compute stream, tcp://127.0.0.1:46119
+2025-12-09 15:07:12,797 - INFO - Starting established connection to tcp://127.0.0.1:56668
+2025-12-09 15:07:12,800 - INFO - Register worker addr: tcp://127.0.0.1:33533 name: 5
+2025-12-09 15:07:12,801 - INFO - Starting worker compute stream, tcp://127.0.0.1:33533
+2025-12-09 15:07:12,801 - INFO - Starting established connection to tcp://127.0.0.1:56676
+2025-12-09 15:07:12,803 - INFO - Register worker addr: tcp://127.0.0.1:33975 name: 6
+2025-12-09 15:07:12,803 - INFO - Starting worker compute stream, tcp://127.0.0.1:33975
+2025-12-09 15:07:12,804 - INFO - Starting established connection to tcp://127.0.0.1:56682
+2025-12-09 15:07:12,814 - INFO - Register worker addr: tcp://127.0.0.1:44223 name: 3
+2025-12-09 15:07:12,815 - INFO - Starting worker compute stream, tcp://127.0.0.1:44223
+2025-12-09 15:07:12,815 - INFO - Starting established connection to tcp://127.0.0.1:56696
+2025-12-09 15:07:12,817 - INFO - Register worker addr: tcp://127.0.0.1:46581 name: 2
+2025-12-09 15:07:12,818 - INFO - Starting worker compute stream, tcp://127.0.0.1:46581
+2025-12-09 15:07:12,818 - INFO - Starting established connection to tcp://127.0.0.1:56706
+2025-12-09 15:07:12,819 - INFO - Register worker addr: tcp://127.0.0.1:46827 name: 4
+2025-12-09 15:07:12,820 - INFO - Starting worker compute stream, tcp://127.0.0.1:46827
+2025-12-09 15:07:12,821 - INFO - Starting established connection to tcp://127.0.0.1:56716
+2025-12-09 15:07:12,821 - INFO - Register worker addr: tcp://127.0.0.1:34805 name: 7
+2025-12-09 15:07:12,822 - INFO - Starting worker compute stream, tcp://127.0.0.1:34805
+2025-12-09 15:07:12,823 - INFO - Starting established connection to tcp://127.0.0.1:56732
+2025-12-09 15:07:12,869 - INFO - Receive client connection: Client-a6614901-d53a-11f0-8787-f9a00a74a80a
+2025-12-09 15:07:12,870 - INFO - Starting established connection to tcp://127.0.0.1:56748
+2025-12-09 15:13:32,747 - INFO - State start
+2025-12-09 15:13:32,750 - INFO -   Scheduler at:     tcp://127.0.0.1:38713
+2025-12-09 15:13:32,751 - INFO -   dashboard at:  http://127.0.0.1:33339/status
+2025-12-09 15:13:32,751 - INFO - Registering Worker plugin shuffle
+2025-12-09 15:13:32,764 - INFO -         Start Nanny at: 'tcp://127.0.0.1:45395'
+2025-12-09 15:13:32,765 - INFO -         Start Nanny at: 'tcp://127.0.0.1:35139'
+2025-12-09 15:13:32,767 - INFO -         Start Nanny at: 'tcp://127.0.0.1:36105'
+2025-12-09 15:13:32,769 - INFO -         Start Nanny at: 'tcp://127.0.0.1:46687'
+2025-12-09 15:13:32,771 - INFO -         Start Nanny at: 'tcp://127.0.0.1:44111'
+2025-12-09 15:13:32,793 - INFO -         Start Nanny at: 'tcp://127.0.0.1:35801'
+2025-12-09 15:13:32,796 - INFO -         Start Nanny at: 'tcp://127.0.0.1:44865'
+2025-12-09 15:13:32,799 - INFO -         Start Nanny at: 'tcp://127.0.0.1:33967'
+2025-12-09 15:13:33,005 - INFO - Register worker addr: tcp://127.0.0.1:36081 name: 0
+2025-12-09 15:13:33,006 - INFO - Starting worker compute stream, tcp://127.0.0.1:36081
+2025-12-09 15:13:33,006 - INFO - Starting established connection to tcp://127.0.0.1:58920
+2025-12-09 15:13:33,008 - INFO - Register worker addr: tcp://127.0.0.1:40823 name: 2
+2025-12-09 15:13:33,008 - INFO - Starting worker compute stream, tcp://127.0.0.1:40823
+2025-12-09 15:13:33,008 - INFO - Starting established connection to tcp://127.0.0.1:58936
+2025-12-09 15:13:33,015 - INFO - Register worker addr: tcp://127.0.0.1:40191 name: 1
+2025-12-09 15:13:33,016 - INFO - Starting worker compute stream, tcp://127.0.0.1:40191
+2025-12-09 15:13:33,016 - INFO - Starting established connection to tcp://127.0.0.1:58946
+2025-12-09 15:13:33,031 - INFO - Register worker addr: tcp://127.0.0.1:46277 name: 6
+2025-12-09 15:13:33,032 - INFO - Starting worker compute stream, tcp://127.0.0.1:46277
+2025-12-09 15:13:33,032 - INFO - Starting established connection to tcp://127.0.0.1:58954
+2025-12-09 15:13:33,032 - INFO - Register worker addr: tcp://127.0.0.1:32919 name: 5
+2025-12-09 15:13:33,033 - INFO - Starting worker compute stream, tcp://127.0.0.1:32919
+2025-12-09 15:13:33,033 - INFO - Starting established connection to tcp://127.0.0.1:58958
+2025-12-09 15:13:33,034 - INFO - Register worker addr: tcp://127.0.0.1:35543 name: 7
+2025-12-09 15:13:33,035 - INFO - Starting worker compute stream, tcp://127.0.0.1:35543
+2025-12-09 15:13:33,035 - INFO - Starting established connection to tcp://127.0.0.1:58966
+2025-12-09 15:13:33,057 - INFO - Register worker addr: tcp://127.0.0.1:43455 name: 3
+2025-12-09 15:13:33,058 - INFO - Starting worker compute stream, tcp://127.0.0.1:43455
+2025-12-09 15:13:33,059 - INFO - Starting established connection to tcp://127.0.0.1:58974
+2025-12-09 15:13:33,062 - INFO - Register worker addr: tcp://127.0.0.1:36183 name: 4
+2025-12-09 15:13:33,064 - INFO - Starting worker compute stream, tcp://127.0.0.1:36183
+2025-12-09 15:13:33,065 - INFO - Starting established connection to tcp://127.0.0.1:58990
+2025-12-09 15:13:33,108 - INFO - Receive client connection: Client-890ab5e9-d53b-11f0-8787-f9a00a74a80a
+2025-12-09 15:13:33,109 - INFO - Starting established connection to tcp://127.0.0.1:53942
+2025-12-09 15:15:08,731 - INFO - Loading US States Shapefile (cached for all iterations)...
